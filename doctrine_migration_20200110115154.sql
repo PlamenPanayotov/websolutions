@@ -1,0 +1,5 @@
+-- Doctrine Migration File Generated on 2020-01-10 11:51:54
+
+-- Version 20200110103935
+CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, username VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_8D93D649F85E0677 (username), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
+INSERT INTO migration_versions (version, executed_at) VALUES ('20200110103935', CURRENT_TIMESTAMP);
