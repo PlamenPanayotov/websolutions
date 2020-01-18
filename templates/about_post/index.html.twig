@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AboutPost index{% endblock %}
+
+{% block body %}
+    <h1>AboutPost index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for about_post in about_posts %}
+            <tr>
+                <td>{{ about_post.id }}</td>
+                <td>{{ about_post.title }}</td>
+                <td>{{ about_post.content }}</td>
+                <td>
+                    <a href="{{ path('about_post_show', {'id': about_post.id}) }}">show</a>
+                    <a href="{{ path('about_post_edit', {'id': about_post.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('about_post_new') }}">Create new</a>
+{% endblock %}
