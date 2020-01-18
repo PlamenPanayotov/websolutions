@@ -42,18 +42,13 @@
             <a class="nav-link" href="contact.html">Contact</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="contact.html">
-            {% if user.isLoggedIn %}
-            Hello {{ user.username }}!
-            {% endif %}
-            </a>
+            <a class="nav-link" href="contact.html"></a>
             </li>
+            {% if app.user %}
+            <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_logout')}}">logout</a>
           </ul>
-        {# {% if app.user %}
-        <button class="btn bg-dark dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{{ asset('img/logot') }}" class="rounded-circle" width="32" height="28">
-                        </button> #}
+          {% endif %}
       </div>
     </div>
   </nav>
