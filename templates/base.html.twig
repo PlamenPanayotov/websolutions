@@ -41,6 +41,13 @@
             <li class="nav-item">
             <a class="nav-link" href="contact.html">Contact</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="contact.html">
+            {% if user.isLoggedIn %}
+            Hello {{ user.username }}!
+            {% endif %}
+            </a>
+            </li>
           </ul>
         {# {% if app.user %}
         <button class="btn bg-dark dropdown-toggle" type="button" id="dropdownMenuButton"
