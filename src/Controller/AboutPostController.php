@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/about/post")
+ * @Route("/about")
  */
 class AboutPostController extends AbstractController
 {
@@ -20,7 +20,7 @@ class AboutPostController extends AbstractController
      */
     public function index(AboutPostRepository $aboutPostRepository): Response
     {
-        return $this->render('about_post/index.html.twig', [
+        return $this->render('home/about.html.twig', [
             'about_posts' => $aboutPostRepository->findAll(),
         ]);
     }

@@ -24,39 +24,20 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
-          
+          {% for about_post in about_posts %}
             <h2 class="post-title">
-              About me...
+            {{ about_post.title }}
             </h2>
             <p class="post-subtitle">
-              My name is Plamen Panayotov. I am a full-stack web developer. 
-              I use different tehnologies and programing languages. 
-              I've studied Softwere Engenering at Software Univercity in Sofia.
+            {{ about_post.content }}
             </p>
-          
-          
+            {% if app.user %}
+                    <a href="{{ path('about_post_edit', {'id': about_post.id}) }}">edit</a>
+                    {% endif %}
+          {% endfor %}
         </div>
         </div>
         </div>
         <hr>
 
-        <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="post-preview">
-          
-            <h2 class="post-title">
-              About me...
-            </h2>
-            <p class="post-subtitle">
-              My name is Plamen Panayotov. I am a full-stack web developer. 
-              I use different tehnologies and programing languages. 
-              I've studied Softwere Engenering at Software Univercity in Sofia.
-            </p>
-          
-          
-        </div>
-        </div>
-        </div>
-        <hr>
 {% endblock %}
