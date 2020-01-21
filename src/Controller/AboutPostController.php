@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/about")
@@ -27,6 +28,8 @@ class AboutPostController extends AbstractController
 
     /**
      * @Route("/new", name="about_post_new", methods={"GET","POST"})
+     * 
+     * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      */
     public function new(Request $request): Response
     {
@@ -50,6 +53,8 @@ class AboutPostController extends AbstractController
 
     /**
      * @Route("/{id}", name="about_post_show", methods={"GET"})
+     * 
+     * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      */
     public function show(AboutPost $aboutPost): Response
     {
@@ -60,6 +65,8 @@ class AboutPostController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="about_post_edit", methods={"GET","POST"})
+     * 
+     * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      */
     public function edit(Request $request, AboutPost $aboutPost): Response
     {
@@ -80,6 +87,8 @@ class AboutPostController extends AbstractController
 
     /**
      * @Route("/{id}", name="about_post_delete", methods={"DELETE"})
+     * 
+     * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      */
     public function delete(Request $request, AboutPost $aboutPost): Response
     {
