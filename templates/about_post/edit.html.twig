@@ -3,11 +3,33 @@
 {% block title %}Edit AboutPost{% endblock %}
 
 {% block body %}
-    <h1>Edit AboutPost</h1>
 
-    {{ include('about_post/_form.html.twig', {'button_label': 'Update'}) }}
+<!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/about-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>About me</h1>
+            <span class="subheading">Plamen Panayotov</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <a href="{{ path('about_post_index') }}">back to list</a>
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <h1>Edit AboutPost</h1>
+        
+            {{ include('about_post/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('about_post/_delete_form.html.twig') }}
+            <a href="{{ path('about_post_index') }}">back to list</a>
+
+            {{ include('about_post/_delete_form.html.twig') }}
+             </div>
+    </div>
+  </div>
 {% endblock %}

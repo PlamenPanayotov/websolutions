@@ -10,8 +10,8 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h2>Plamen Panayotov</h2>
-            <span class="subheading">Web Developer</span>
+            <h1>About me</h1>
+            <span class="subheading">Plamen Panayotov</span>
           </div>
         </div>
       </div>
@@ -24,6 +24,9 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
+        {% if app.user %}
+        <a href="{{ path('about_post_new') }}">New post</a>
+        {% endif %}
           {% for about_post in about_posts %}
             <h2 class="post-title">
             {{ about_post.title }}
