@@ -1,0 +1,38 @@
+easy_admin:
+   design: 
+      menu:
+            - {label: "Entities"}
+            - label: "Posts"
+              children:
+                  - {entity: AboutPost, label: "Posts list", icon: "th-list"}
+                  - {entity: AboutPost, label: "Add post", icon: "plus", params: {action: 'new'}}  
+   site_name: 'PlamenPanayotov'   
+   entities:
+       # List the entity class name you want to manage
+       AboutPost:
+            class: App\Entity\AboutPost
+            label: "Post"
+            form:
+                  fields:
+                        - title
+                        - {property: 'content', type: 'text'}
+                        - {type: 'group', icon: 'clip', label: 'Attachments', css_class: 'col-lg-5'}
+                        - {property: 'thumbnailFile', type: 'vich_image'}
+                        - {property: 'attachments', type: 'collection', type_options: {entry_type: 'App\Form\AttachmentType', by_reference: false}}
+
+            list:
+                  collapse_actions: true
+                  actions: ['show', 'edit', 'delete']
+                  batch_action: ['delete']
+                  fields: ['title', 'content', {property: 'thumbnail', type: 'image', base_path: '%uploads_path%'}]            
+            show:
+                  fields:
+                        - title
+                        - {property: 'content', type: 'raw'}
+                        - {property: 'thumbnail', type: 'image', base_path: '%uploads_path%'}
+                        - {property: 'attachments', template: 'images.html.twig'}            
+   user:
+        name_property_path: 'username'
+        display_name: true
+        display_avatar: false 
+        
